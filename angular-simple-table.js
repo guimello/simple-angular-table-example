@@ -11,6 +11,7 @@
    * @property {Array} filtered users data
    * @property {Array} moods that are available
    * @property {Object} mood that is selected in the filter
+   * @property {String} searched name
    */
   app.controller('SimpleTable', ["$scope", function($scope) {
     $scope.users = [
@@ -28,8 +29,9 @@
       { "emoticon": ":(" }
     ];
 
-    // Will be defined by the view
+    // Will be defined by the view. It's here just for documenting
     $scope.selectedMood;
+    $scope.searchedName;
   }]);
 
   /**
