@@ -53,9 +53,15 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="searchedName" class="col-sm-1 control-label">Name</label>
+                <label for="filteredName" class="col-sm-1 control-label">Name</label>
                 <div class="col-sm-4">
-                  <input type="text" name="searchedName" class="form-control" ng-model="searchedName" />
+                  <input type="text" name="filteredName" class="form-control" ng-model="filteredName" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="filteredAge" class="col-sm-1 control-label">Age</label>
+                <div class="col-sm-4">
+                  <input type="text" name="filteredAge" class="form-control" ng-model="filteredAge" />
                 </div>
               </div>
             </fieldset>
@@ -72,7 +78,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="user in filteredUsers = (users | moodFilter:selectedMood | filter:{ name:searchedName })">
+              <tr ng-repeat="user in filteredUsers = (users | moodFilter:selectedMood | filter:{ name:filteredName } | filter:{ age:filteredAge })">
                 <td ng-bind="user.name"></td>
                 <td ng-bind="user.age"></td>
                 <td ng-bind="user.mood"></td>

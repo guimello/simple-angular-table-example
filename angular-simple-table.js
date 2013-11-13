@@ -11,7 +11,8 @@
    * @property {Array} filtered users data
    * @property {Array} moods that are available
    * @property {Object} mood that is selected in the filter
-   * @property {String} filtered name
+   * @property {String} name that was filtered
+   * @property {String} age that was filtered
    */
   app.controller('SimpleTable', ["$scope", function($scope) {
     $scope.users = [
@@ -32,6 +33,7 @@
     // Will be defined by the view. It's here just for documenting
     $scope.selectedMood;
     $scope.filteredName;
+    $scope.filteredAge;
   }]);
 
   /**
