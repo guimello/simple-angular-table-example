@@ -41,15 +41,9 @@
       if (!users || !mood) {
         return users;
       } else {
-        var filteredUsers = [];
-
-        angular.forEach(users, function(user) {
-          if (angular.equals(user.mood, mood.emoticon)) {
-            filteredUsers.push(user);
-          }
+        return users.filter(function(user) {
+          return user.mood === mood.emoticon;
         });
-
-        return filteredUsers;
       }
     }
   }]);
