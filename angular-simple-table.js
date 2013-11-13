@@ -1,8 +1,8 @@
 (function(angular) {
   'use strict';
 
-  var app = angular.module('App', ['App.filters']);
-  var filters = angular.module('App.filters', []);
+  var app = angular.module('leApp', ['leApp.filters']);
+  var filters = angular.module('leApp.filters', []);
 
   /**
    * Represents the simple table view model
@@ -28,6 +28,7 @@
       { "emoticon": ":(" }
     ];
 
+    // Will be defined by the view
     $scope.selectedMood;
   }]);
 
