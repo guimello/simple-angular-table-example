@@ -20,6 +20,7 @@
       { "name": "Guilherme da Silva Mello", "age": 28, "username": "guimello", "mood": ":)" },
       { "name": "Gordon Freeman", "age": 40, "username": "freeman",  "mood": ":/" },
       { "name": "Rei do camarote", "age": 35, "username": "frei",  "mood": ":(" },
+      { "name": "Rei do camarote", "age": 36, "username": "donald",  "mood": ":(" },
       { "name": "Bruce Dickinson", "age": 50, "username": "dick",  "mood": ":)" }
     ];
 
@@ -29,6 +30,22 @@
       { "emoticon": ":/" },
       { "emoticon": ":(" }
     ];
+
+    $scope.sortPredicate = "name";
+    $scope.reverseOrder = false;
+
+    $scope.sortBy = function sortBy(column) {
+      if ($scope.sortPredicate === column) {
+        $scope.reverseOrder = !$scope.reverseOrder;
+      } else {
+        $scope.sortPredicate = column;
+      }
+    }
+
+    $scope.sortIcon = function(column, reverse) {
+      if (column !== $scope.sortPredicate) return false;
+      return reverse === $scope.reverseOrder;
+    }
 
     // Those will be defined by the view. It's here just for documenting
     $scope.filteredUsers;

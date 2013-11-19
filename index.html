@@ -17,6 +17,8 @@
 
     <link href="/stylesheets/application.css" rel="stylesheet">
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -78,14 +80,34 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Username</th>
-                <th>Mood</th>
+                <th>
+                  <a href="" ng-click="sortBy('name')">
+                    <i class="fa fa-sort fa-fw" ng-class="{ 'fa-sort-up': sortIcon('name', false), 'fa-sort-down': sortIcon('name', true) }"></i>
+                    Name
+                  </a>
+                </th>
+                <th>
+                  <a href="" ng-click="sortBy('age')">
+                    <i class="fa fa-sort fa-fw" ng-class="{ 'fa-sort-up': sortIcon('age', false), 'fa-sort-down': sortIcon('age', true) }"></i>
+                    Age
+                  </a>
+                </th>
+                <th>
+                  <a href="" ng-click="sortBy('username')">
+                    <i class="fa fa-sort fa-fw" ng-class="{ 'fa-sort-up': sortIcon('username', false), 'fa-sort-down': sortIcon('username', true) }"></i>
+                    UserName
+                  </a>
+                </th>
+                <th>
+                  <a href="" ng-click="sortBy('mood')">
+                    <i class="fa fa-sort fa-fw" ng-class="{ 'fa-sort-up': sortIcon('mood', false), 'fa-sort-down': sortIcon('mood', true) }"></i>
+                    Mood
+                  </a>
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="user in filteredUsers = (users | moodFilter:filteredMood | filter:{ name:filteredName } | filter:{ age:filteredAge } | usernameFilter:filteredUsername)">
+              <tr ng-repeat="user in filteredUsers = (users | moodFilter:filteredMood | filter:{ name:filteredName } | filter:{ age:filteredAge } | usernameFilter:filteredUsername) | orderBy:sortPredicate:reverseOrder">
                 <td ng-bind="user.name"></td>
                 <td ng-bind="user.age"></td>
                 <td ng-bind="user.username"></td>
